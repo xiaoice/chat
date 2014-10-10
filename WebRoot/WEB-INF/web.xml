@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+		 xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+    <context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:applicationContext.xml</param-value>
+	</context-param>
+	
+	
+	<servlet>
+		<servlet-name>ajax</servlet-name>
+		<servlet-class>com.zte.push.Ajax</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ajax</servlet-name>
+		<url-pattern>/ajax.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>thread</servlet-name>
+		<servlet-class>com.zte.framework.thread.TestSingleThreadExecutor</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>thread</servlet-name>
+		<url-pattern>/thread.htm</url-pattern>
+	</servlet-mapping>
+	
+	
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- OGNL会执行执行安全检测，但是并不被BAE所支持，解决方法是创建一个监听器，将安全检查处理器置空 -->
+    <listener>  
+        <listener-class>com.zte.framework.util.Struts2ListenerOnBAE</listener-class>  
+    </listener>
+	
+	<!-- 设置session超时时间 -->
+	<session-config>
+	    <session-timeout>30</session-timeout>
+	</session-config>
+	
+	<welcome-file-list>
+	  <welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

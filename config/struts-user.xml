@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+	
+<struts>
+	<package name="struts-user" extends="struts-intercept" namespace="/user">
+
+		<action name="user_*">
+			<result type="dispatcher">/jsp/user/{1}.jsp</result>
+		</action>
+		
+		<!-- 修改用户信息 -->
+		<action name="updateUserinfo" class="userAction" method="updateUserinfo">
+			<result name="success" type="redirectAction">user_update_success</result>
+			<result name="error" type="dispatcher">/jsp/user/userinfo.jsp</result>
+		</action>
+		
+		<!-- 根据用户名分页查找信息 -->
+		<action name="findPageListByname" class="userAction" method="findPageListByname">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<!-- 用户中心首页 -->
+		<action name="index" class="userFriendAction" method="userIndex">
+			<result type="dispatcher">/jsp/user/index.jsp</result>
+		</action>
+		
+		<!-- 加为好友 -->
+		<action name="saveUserFriend" class="userFriendAction" method="saveUserFriend">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<!-- 用户中心首页 -->
+		<action name="findUserListAjax" class="userFriendAction" method="findUserListAjax">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+	</package>
+</struts>

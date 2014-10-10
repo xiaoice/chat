@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zte.user.dao.UserDao">
+	
+	<insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+		insert into user(username,password,name,photo,age) values(#{username},#{password},#{name},#{photo},#{age})
+    </insert>
+    
+    <update id="update" parameterType="User">
+    	update user set name=#{name},photo=#{photo},age=#{age} where id=#{id} and username=#{username}
+    </update>
+    
+	<select id="findById" resultType="User" parameterType="int">
+		select id,username,name,photo,age from user where id=#{id} 
+    </select>
+    
+    <!-- 根据用户名、密码登录 -->
+	<select id="findUserByUsernameAndPwd" resultType="User" parameterType="hashMap">
+		select * from user where username=#{username} and password=#{password} 
+    </select>
+    
+   <!-- 根据用户名、密码登录 -->
+	<select id="checkByUsername" resultType="int" parameterType="hashMap">
+		select count(1) from user where username=#{username}
+    </select>
+	
+	<!-- 根据用户名分页查询用户信息 -->
+	<select id="findPageListByname" parameterType="hashMap" resultType="hashMap">
+		select id,username,name,photo,age from user u where u.id not in (
+			select f.friendid from userFriend f where f.userid=#{userId} 
+		) and u.id !=#{userId}
+		<if test="name !=null and name !=''">
+			and name like '%${name}%'
+		</if>
+		limit #{startNum},#{endNum}
+    </select>
+    
+    <!-- 根据用户名分页查询用户总数 -->
+	<select id="findPageListCountByname" parameterType="hashMap" resultType="int">
+		select count(1) from user u where u.id not in (
+			select f.friendid from userFriend f where f.userid=#{userId} 
+		) and u.id !=#{userId}
+		<if test="name !=null and name !='' ">
+			and name like '%${name}%'
+		</if>
+    </select>
+</mapper> 

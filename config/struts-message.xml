@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+
+<struts>
+	<package name="struts-message" extends="json-default,struts-intercept" namespace="/message">
+	
+		<action name="index" class="messageAction" method="index">
+			<result name="input">/jsp/message/index.jsp</result>
+		</action>
+		
+		<action name="send" class="messageAction" method="send">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<!-- 获取未读的新消息列表 -->
+		<action name="getMessageList" class="messageAction" method="getMessageList">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<!-- 获取轮询未读的新消息 -->
+		<action name="loopMessage" class="messageAction" method="loopMessage">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<action name="getMessageCount" class="messageAction" method="getMessageCount">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		 <!-- 分页获取消息列表 -->
+		<action name="findMessageListByPage" class="messageAction" method="findMessageListByPage">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+		
+		<!-- 将消息置为已读 -->
+		<action name="updateMessageIsRead" class="messageAction" method="updateMessageIsRead">
+			<result name="json" type="json"><param name="root">ajaxUtil</param></result>
+		</action>
+	</package>
+</struts>

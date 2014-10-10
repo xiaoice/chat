@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+.warn_icon_left{background-image: url("../image/file-icon-left.png");}
+.warn_icon_right{background-image: url("../image/file-icon-right.png");}
+.warn_icon_circle_green{background-image: url("../image/file-icon-circle-green.png");}
+.warn_icon_circle_green_16{background-image: url("../image/file-icon-circle-green-16.png"); background-repeat: no-repeat;background-position: center;}
+.warn_icon_circle_red{background-image: url("../image/file-icon-circle-red.png");}
+.warn_icon_circle_red_16{background-image: url("../image/file-icon-circle-red-16.png"); background-repeat: no-repeat;background-position: center;}
+.warn_icon_ellipse_red{background-image: url("../image/file-icon-ellipse-red.png"); }
+.warn_icon_ellipse_red_active{background-image: url("../image/file-icon-ellipse-red.gif"); }
+.warn_icon_ellipse_green{background-image: url("../image/file-icon-ellipse-green.png");}

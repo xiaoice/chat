@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+.desk_icon{background-image: url("../image/desk_icon_1.png");background-repeat: no-repeat; display: block;}
+.desk_icon_bg_window{background: url("../image/desk_icon_window_bg.png") repeat -600px -100px;}
+.desk_icon_refresh{background-position: -90px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_refresh:hover{background-position: -272px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_fixed{background-position: -119px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_fixed:hover{background-position: -301px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_love{background-position: -210px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_love:hover{background-position: -392px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_user{background-position: -243px -169px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_user:hover{background-position: -425px -169px; width:22px; height:22px; cursor: pointer;}
+
+.desk_icon_close{background-position: -350px -260px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_close:hover{background-position: -350px -204px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_max{background-position: -320px -260px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_max:hover{background-position: -320px -204px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_restore{background-position: -380px -260px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_restore:hover{background-position: -380px -204px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_min{background-position: -291px -260px; width:22px; height:22px; cursor: pointer;}
+.desk_icon_min:hover{background-position: -291px -204px; width:22px; height:22px; cursor: pointer;}

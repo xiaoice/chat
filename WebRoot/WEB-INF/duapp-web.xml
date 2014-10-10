@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<du-web-app xmlns="http://bae.baidu.com/java/1.0" >
+
+    <!-- Configure java.util.logging -->
+    <!-- <system-properties>
+    	<property name="java.util.logging.level" value="WARNING"/>
+    </system-properties> -->
+
+    <static-files>
+        <include  expiration="access 1 months" path="/**.html" />
+	    <include path="/**.jpg" expiration ="access 60 seconds" />
+	    <include path="/**.gif" expiration ="access 60 seconds" />
+	</static-files>
+    <sessions-enabled>true</sessions-enabled>
+</du-web-app>

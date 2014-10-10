@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zte.user.dao.UserFriendDao">
+    
+    <resultMap id="UserFriendMap" type="hashMap">
+    	<id property="id" column="id"/>
+        <association property="user" column="userId" javaType="User" select="com.zte.user.dao.UserDao.findById"/>
+        <association property="friend" column="friendId" javaType="User" select="com.zte.user.dao.UserDao.findById"/>
+    </resultMap>
+    
+    <!-- 根据用户名Id得到列表-->
+	<select id="findByUserId" resultMap="UserFriendMap" parameterType="hashMap">
+		 select userid,friendId from userFriend where userId=#{userId} and status=1
+    </select>
+    
+    <!-- 根据朋友Id得到陌生人列表-->
+	<select id="findByFriendId" resultMap="UserFriendMap" parameterType="hashMap">
+		select main.userid,main.friendId from userFriend main where main.friendId=#{userId}
+		and main.userId not in(select other.friendId from userFriend other where other.userid=#{userId})
+		and status=1
+    </select>
+    
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="id">
+		insert into userFriend(userId,friendId,status,createTime,createBy) values(#{userId},#{friendId},#{status},#{createTime},#{createBy})
+    </insert>
+</mapper>

@@ -1,0 +1,29 @@
+.red{color:red !important;}
+.green{color:green !important;}
+.color_tag{color: #993300;font-weight: bold;}
+.color_attr{color: #ff0000;font-weight:normal;}
+
+.wrap_wait{position: fixed;top:0;left:0;text-align:center; width:100%; height:100%; background-color: #fff; font-size: 32px; z-index: 1002;}
+.wrap_wait .wrap_wait_text{font-size: 80px;margin-top: 260px;}
+.wrap_wait .glyphicon-refresh{animation: 2s linear 0s normal none infinite spin;display: inline-block;}
+.reg_wrap{}
+.reg_wrap .reg_wrap_left{width:20%; min-width:200px; float: left;}
+.reg_wrap .reg_wrap_right{padding:0 10px; width:80%;float: right;}
+.reg_wrap .panel-body{padding:0;}
+.reg_wrap_right pre{padding:5px;margin: 0;border-width: 0;background-color: #F8F8F8;}
+.reg_wrap_right pre ol{margin: 0;}
+.reg_wrap_right pre li{list-style-type: decimal-leading-zero;border-left: 3px solid #6CE26C;padding: 0 3px 0 10px;font-family: "Consolas","Courier New",Courier,mono,serif;}
+.reg_wrap_right table{margin: 0;border-width: 0;}
+.reg_wrap_right table tr td:first-child,.reg_wrap_right table tr th:first-child{border-left-width: 0;}
+.reg_wrap_right table tr:first-child td,.reg_wrap_right table tr:first-child th{border-top-width: 0;}
+.reg_wrap_right table tr:last-child td{border-bottom-width: 0;}
+
+.reg_wrap_left .panel{position: fixed;}
+.reg_wrap .nav {overflow-x: hidden;overflow-y: auto;padding:0 5px;}
+.reg_wrap .nav a{font-size: 12px; padding:3px 0 3px 5px;border-radius:3px; color:#333;}
+.reg_wrap .nav a:hover,.reg_wrap .nav .active{background-color: #5CB85C;color:#fff;}
+
+@keyframes spin {
+0% {transform: rotate(0deg);}
+100% {transform: rotate(359deg);}
+}

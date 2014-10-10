@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+    <!DOCTYPE mapper 
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zte.message.service.MessageService">
+	
+	<insert id="insert" parameterType="message" useGeneratedKeys="true" keyProperty="id">
+		insert into message(userId,friendId,content,sendUsername,ip,createBy,createTime) values
+				(#{userId},#{friendId},#{content},#{sendUsername},#{ip},#{createBy},#{createTime})
+    </insert>
+    
+	<select id="getById" resultType="message" parameterType="int">
+		select * from message where id=#{id} 
+    </select>
+    
+    <update id="update" parameterType="message">
+    	update message set age=#{age}
+    </update>
+    
+    <delete id="deleteById" parameterType="int" >
+    	delete from message where id=#{id}
+    </delete>
+    
+    <!-- 获取未读的新消息列表 -->
+	<select id="getMessageList" resultType="hashMap" parameterType="hashMap">
+		select m.*,u.photo from message m,user u where u.id=m.userid and userId=#{userId} and friendId=#{friendId} and createBy!=#{createBy} and isRead=0 and isDel=0 order by createTime asc
+    </select>
+    
+    <select id="getMessageCount" resultType="int" parameterType="hashMap">
+		select count(1) from message where (userId=#{userId} and friendId=#{friendId} or (userId=#{friendId} and friendId=#{userId} and isRead=#{isRead})) and isDel=0
+    </select>
+    
+    <!-- 获取未读的新消息列表总数 -->
+	<select id="getUnReadMessageCount" resultType="hashMap" parameterType="hashMap">
+		select userId as friendId,count(userId) as count from message where friendId=#{friendId} and isRead=0 and isDel=0 GROUP BY userId 
+    </select>
+    
+    <!-- 分页获取消息列表 -->
+    <select id="findMessageListByPage" resultType="hashMap" parameterType="hashMap">
+		select m.*,u.photo from message m,user u where u.id=m.userid and (userId=#{userId} and friendId=#{friendId} or (userId=#{friendId} and friendId=#{userId} and isRead=#{isRead})) and isDel=0 
+		order by createTime desc limit #{startNum},#{endNum}
+    </select>
+    
+    <!-- 将消息置为已读 -->
+    <update id="updateMessageIsRead" parameterType="hashMap">
+    	update message set isRead=1 where friendId=#{friendId} and id in(${ids})
+    </update>
+
+	<!-- 当使用该Mybatis与Spring整合的时候，该文件必须和相应的Mapper接口文件同名，并在同一路径下 -->
+</mapper> 

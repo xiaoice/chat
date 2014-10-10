@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.chat_warp{margin:auto; padding:0;width:100%;height:auto;position: relative;}
+
+.user_photo_img{width: 32px; height: 32px; cursor: pointer;}
+.reg_table{margin: 0;}
+.reg_table td{vertical-align: middle !important; border-width:0 !important;}
+.reg_table img{border-radius:4px;}
+.reg_table i{font-size: 14px;}
+.reg_table span{font-size: 12px; padding-left: 5px;}
+.reg_table label{font-weight: normal;}
+.reg_table tr{border-bottom: 1px dashed #E5E5EF;}
+.reg_table tr:last-child{border-bottom-width: 0;}
+.reg_table td:first-child{padding-right: 0;}
+.reg_table td:last-child{padding-left: 0;}
+.reg_table .input_wait{border-color: #C09853;background-color: #FFF6E7;}
+.reg_table .input_success{border-color: #468847;background-color: #E3FFE3;}
+.reg_table .input_error{border-color: #B94A48;background-color: #FFE8E7;}
+.reg_table .spinner_up,.reg_table .spinner_down{position: absolute;right:1px;width:20px;color: #4CAE4C;border-left:1px solid #ccc;background-color: #FEFEFE;text-align: center;}
+.reg_table .spinner_up{top:1px;padding-top: 1px;border-top-right-radius:4px;border-bottom:1px solid #ccc;}
+.reg_table .spinner_down{bottom:1px;padding-bottom: 1px;border-bottom-right-radius:4px;border-top:1px solid #ccc;}
+.reg_table .spinner_up:hover,.reg_table .spinner_down:hover{background-color: #ebebeb;cursor: pointer; color: blue;}
+.reg_table .relative{position: relative;}
+
+

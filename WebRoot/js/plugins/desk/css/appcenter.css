@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+
+.appcenter{width:800px; height:auto; margin:0 auto; margin-top:0px;}
+.appcenter_left{ float:left; width:180px; height:510px; border:1px solid #8FC1E8;border-radius:3px; }
+.appcenter_left_ul{margin:0; padding:10px 10px 5px 10px; list-style-type:none;}
+.appcenter_left_ul li{position:relative; margin-bottom:5px; padding:0 10px; width:138px; height:24px; line-height:21px; border:1px solid #6AA0C9; border-radius:5px; }
+.appcenter_left_ul li:hover{border:1px solid #8f0000; background-color: #AFC968; color:#030184;}
+.appcenter_left_sort,.appcenter_left_del,.appcenter_left_edit{position: absolute; right:12px; top:4px; width:16px;height:16px; padding:2px;}
+.appcenter_left_sort{right:5px;}
+.appcenter_left_del{right:5px;}
+.appcenter_left_edit{right:30px;}
+
+.appcenter_left_li_cur{background-color: #779699;}
+.appcenter_right{ float:right; width:610px; min-height:510px;height:auto; border:1px solid #8FC1E8;border-radius:3px; }
+.appcenter_right_ul{margin:0;padding:0; list-style-type:none; padding:10px 0 0 10px;}
+.appcenter_right_ul li{position:relative; list-style-type:none;float:left;width:88px; height:78px; padding-top:10px; margin-right:10px; margin-bottom:10px; *margin-bottom:0; text-align:center; border:1px solid #C1994D; background-color: #F4F8FF;border-radius:5px;}
+.appcenter_right_ul li:hover{border:1px solid #FF8300; background-color: #E8DBFF;}
+.appcenter_right_ul .appcenter_right_li_img{ width:48px; height:48px;border-radius:7px;}
+.appcenter_right_ul .appcenter_exist_img{position:absolute;top:0;right:0; width:88px; height:88px;border:0;background-image: url("../image/desk_icon_exist.gif");border-radius:4px;}
+.appcenter_right_ul li div{display: block;height:24px; line-height:24px; width: 88px; overflow:hidden;}
+.appcenter_right_del{position: absolute;top:-3px;right:-3px;}
+.appcenter_right_edit{position: absolute;top:2px;left:2px;width:16px;height:16px;}
+
+.appcenter_menu{height:28px;}
+.appcenter_menu_left{width:160px; padding:0 11px; float:left; height:28px; line-height: 28px; background-color: #8f0000; color:#fff; border-radius:5px;}
+.appcenter_menu_left a{ padding: 2px 6px; margin:2px; *margin:1px; border:1px solid #D0E81E; background-color:#966A19; height:18px;border-radius:3px; cursor: pointer;}
+.appcenter_menu_right{width:590px; padding:0 11px; float:right; height:28px; line-height: 28px; background-color: #050075; color:#fff; border-radius:5px;}
+.appcenter_menu_right a{ padding: 2px 6px; margin:2px; *margin:1px; border:1px solid #15C1ED; background-color:#168978; height:18px;border-radius:3px; cursor: pointer;}
+.appcenter_menu_box,.appcenter_box{display: none;}
+
+.hidden{display:none;}
